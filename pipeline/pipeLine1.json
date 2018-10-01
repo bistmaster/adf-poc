@@ -1,0 +1,55 @@
+{
+	"name": "pipeLine1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy Data1",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "HttpSource",
+						"httpRequestTimeout": "00:01:40"
+					},
+					"sink": {
+						"type": "DocumentDbCollectionSink",
+						"writeBatchTimeout": "10.23:55:55",
+						"nestingSeparator": "",
+						"writeBatchSize": 10000,
+						"writeBehavior": "upsert"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"userId": "$v.id.$v",
+							"id": "$v.userId.$v",
+							"title": "$v.title.$v",
+							"body": "$v.body.$v"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "HttpFile1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CosmoDBDatasets",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

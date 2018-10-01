@@ -1,0 +1,32 @@
+{
+	"name": "DestinationDataset_q1g",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CosmosDb1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "DocumentDbCollection",
+		"structure": [
+			{
+				"name": "$t",
+				"type": "Int64"
+			},
+			{
+				"name": "$v._id.$t",
+				"type": "Int64"
+			},
+			{
+				"name": "$v._id.$v",
+				"type": "String"
+			},
+			{
+				"name": "id",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"collectionName": "Content"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

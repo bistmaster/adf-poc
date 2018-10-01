@@ -1,0 +1,44 @@
+{
+	"name": "HttpFile1",
+	"properties": {
+		"description": "fetching the data",
+		"linkedServiceName": {
+			"referenceName": "HttpServer1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "HttpFile",
+		"structure": [
+			{
+				"name": "userId",
+				"type": "Int64"
+			},
+			{
+				"name": "id",
+				"type": "Int64"
+			},
+			{
+				"name": "title",
+				"type": "String"
+			},
+			{
+				"name": "body",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "arrayOfObjects",
+				"jsonPathDefinition": {
+					"userId": "$.['userId']",
+					"id": "$.['id']",
+					"title": "$.['title']",
+					"body": "$.['body']"
+				}
+			},
+			"relativeUrl": "",
+			"requestMethod": "Get"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

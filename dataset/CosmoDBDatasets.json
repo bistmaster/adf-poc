@@ -1,0 +1,33 @@
+{
+	"name": "CosmoDBDatasets",
+	"properties": {
+		"description": "This is the books",
+		"linkedServiceName": {
+			"referenceName": "CosmosDb1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "DocumentDbCollection",
+		"structure": [
+			{
+				"name": "$v.id.$v",
+				"type": "Int64"
+			},
+			{
+				"name": "$v.userId.$v",
+				"type": "Int64"
+			},
+			{
+				"name": "$v.title.$v",
+				"type": "String"
+			},
+			{
+				"name": "$v.body.$v",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"collectionName": "Content"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
